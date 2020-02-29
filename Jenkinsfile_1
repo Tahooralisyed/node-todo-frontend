@@ -1,4 +1,5 @@
 //Jenkins file only to tutorial example
+//sh 'npm build --prod'
 pipeline {
   agent any
     
@@ -19,7 +20,8 @@ pipeline {
     }
     stage('Build') {
       steps {
-         sh 'npm build --prod'
+         sh '${env.BUILD_ID} npm run build:prod'
+         
       }
     }  
      
